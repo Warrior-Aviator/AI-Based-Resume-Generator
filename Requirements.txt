@@ -4,4 +4,3 @@
 
 uvicorn main:app --reload
 
-Cohere = qDF4NLc9Q8QSTvjyI0feFsnaKKJeUQLiOAv3P9GX
