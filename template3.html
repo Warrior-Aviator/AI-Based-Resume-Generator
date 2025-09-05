@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ name }} - Resume</title>
+  <style>
+    body { font-family: "Verdana", sans-serif; margin: 40px; color: #222; background-color: #f7f9fc; }
+    h1 { color: #2a2f45; border-bottom: 2px solid #aaa; padding-bottom: 10px; }
+    .container { display: flex; gap: 50px; }
+    .left, .right { flex: 1; }
+    .section { margin-bottom: 20px; }
+    .section h2 { color: #3a3a3a; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    .cover-letter { white-space: pre-wrap; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>{{ name or "Candidate Name" }}</h1>
+  <p><strong>Contact:</strong> {{ contact_info }}</p>
+
+  <div class="container">
+    <div class="left">
+      {% if summary %}<div class="section"><h2>Summary</h2><p>{{ summary }}</p></div>{% endif %}
+      {% if experience %}<div class="section"><h2>Experience</h2><p>{{ experience }}</p></div>{% endif %}
+      {% if education %}<div class="section"><h2>Education</h2><p>{{ education }}</p></div>{% endif %}
+    </div>
+    <div class="right">
+      {% if projects %}<div class="section"><h2>Projects</h2><p>{{ projects }}</p></div>{% endif %}
+      {% if skills %}<div class="section"><h2>Skills</h2><p>{{ skills }}</p></div>{% endif %}
+      {% if hobbies %}<div class="section"><h2>Hobbies</h2><p>{{ hobbies }}</p></div>{% endif %}
+      {% if achievements %}<div class="section"><h2>Achievements</h2><p>{{ achievements }}</p></div>{% endif %}
+    </div>
+  </div>
+
+  {% if cover_letter %}
+  <div class="cover-letter"><h2>Cover Letter</h2><p>{{ cover_letter }}</p></div>
+  {% endif %}
+</body>
+</html>

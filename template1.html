@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ name }} - Optimized Resume</title>
+  <style>
+    body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
+    h1, h2, h3 { color: #2c3e50; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+    section { margin-top: 22px; }
+    .cover-letter { margin-top: 32px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>{{ name or "Candidate Name" }}</h1>
+  <p><strong>Contact:</strong> {{ contact_info or "Email | Phone | Location" }}</p>
+
+  {% if summary %}
+  <section><h2>Summary</h2><p>{{ summary }}</p></section>
+  {% endif %}
+  {% if education %}
+  <section><h2>Education</h2><p>{{ education }}</p></section>
+  {% endif %}
+  {% if experience %}
+  <section><h2>Experience</h2><p>{{ experience }}</p></section>
+  {% endif %}
+  {% if projects %}
+  <section><h2>Projects</h2><p>{{ projects }}</p></section>
+  {% endif %}
+  {% if skills %}
+  <section><h2>Skills</h2><p>{{ skills }}</p></section>
+  {% endif %}
+  {% if hobbies %}
+  <section><h2>Hobbies</h2><p>{{ hobbies }}</p></section>
+  {% endif %}
+  {% if achievements %}
+  <section><h2>Achievements</h2><p>{{ achievements }}</p></section>
+  {% endif %}
+
+  {% if cover_letter %}
+  <section class="cover-letter"><h2>Tailored Cover Letter</h2><p>{{ cover_letter }}</p></section>
+  {% endif %}
+</body>
+</html>

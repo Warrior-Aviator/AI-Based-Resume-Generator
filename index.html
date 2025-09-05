@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume GPT</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Resume GPT</h1>
+    <p class="subtitle">Generate an optimized, ATS-friendly resume + cover letter. Optionally tailor to a job description.</p>
+
+    <div class="grid-2">
+      <div>
+        <label for="name">Full Name</label>
+        <input id="name" placeholder="Your Name" />
+
+        <label for="contact">Contact Info</label>
+        <input id="contact" placeholder="Email | Phone | Location" />
+
+        <label for="summary">Professional Summary</label>
+        <textarea id="summary" rows="3" placeholder="2–3 lines about you"></textarea>
+
+        <label for="education">Education</label>
+        <textarea id="education" rows="4" placeholder="Degree, Institute, CGPA, Years"></textarea>
+
+        <label for="experience">Experience</label>
+        <textarea id="experience" rows="6" placeholder="Role – Company – Dates – Impact bullets"></textarea>
+
+        <label for="projects">Projects</label>
+        <textarea id="projects" rows="4" placeholder="Project – Tech – Impact"></textarea>
+
+        <label for="skills">Skills</label>
+        <textarea id="skills" rows="3" placeholder="Languages, Frameworks, Tools"></textarea>
+
+        <label for="hobbies">Hobbies</label>
+        <textarea id="hobbies" rows="2"></textarea>
+
+        <label for="achievements">Achievements</label>
+        <textarea id="achievements" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="jobDescription">Job Description (optional)</label>
+        <textarea id="jobDescription" rows="10" placeholder="Paste JD here to tailor your resume"></textarea>
+
+        <label for="templateSelect">Choose Template</label>
+        <select id="templateSelect">
+          <option value="template1.html">Formal</option>
+          <option value="template2.html">College Placement</option>
+          <option value="template3.html">Two-Column</option>
+        </select>
+
+        <div class="btn-row">
+          <button id="optimizeBtn">Optimize</button>
+          <button id="previewBtn" class="secondary">Preview</button>
+          <button id="downloadPdfBtn" class="ghost">Download PDF</button>
+        </div>
+
+        <div class="score-meter-container">
+          <div>Job Match Score</div>
+          <div class="score-bar"><div id="scoreFill" class="score-fill">0%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="output-section">
+      <h2>Optimized Resume</h2>
+      <pre id="resumeOutput"></pre>
+
+      <h2>Tailored Cover Letter</h2>
+      <pre id="coverLetterOutput"></pre>
+    </div>
+  </div>
+
+  <form id="previewForm" action="/preview" method="POST" target="_blank" style="display:none;"></form>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
