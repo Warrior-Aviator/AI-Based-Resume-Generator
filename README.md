@@ -1,107 +1,112 @@
-# AI-Based-Resume-Generator
+# 🚀 Resume GPT 
+is a FastAPI + Jinja2 web app that helps you optimize resumes and generate tailored cover letters using AI.
+It analyzes your existing resume and the target job description, then produces:
 
-# 🧠 AI Resume Optimizer
+✨ An optimized resume with improved phrasing
 
-An intelligent, full-stack web application that **optimizes resumes and generates tailored cover letters** based on a provided job description using **Cohere’s large language model**. The tool leverages machine learning to help job seekers craft better applications in seconds.
+📝 A tailored cover letter
 
-## 🔍 Features
+📊 A match score showing how well your resume fits the job
 
-- ✨ Optimize your existing resume to match the job role
-- 📄 Auto-generate a personalized cover letter
-- 🧠 Powered by Cohere’s language model (Chat API)
-- 📥 Download results as a clean, printable PDF
-- 🌐 Simple, responsive web interface built using **HTML, CSS, JavaScript, and FastAPI**
+The app also allows PDF downloads with different templates, and supports multiple AI providers (Gemini, Cohere, Hugging Face, OpenAI, etc.) to avoid quota issues.
 
----
+# 📌 Features
 
-## 🚀 Demo
+✅ Resume Optimization → Polishes your resume with AI
 
-1. Paste your resume
-2. Paste the job description
-3. Click **Optimize**
-4. View and download:
-   - Optimized Resume ✅
-   - Tailored Cover Letter ✅
+✅ Cover Letter Generation → Auto-drafted based on your JD
 
----
+✅ Match Score → Percentage fit for the given job description
 
-## 🏗️ Project Structure
+✅ PDF Export → Choose from multiple professional templates
 
-├── main.py # FastAPI backend (API endpoints)
-├── cohere_client.py # Calls Cohere API to generate optimized content
-├── pdf_generator.py # Generates PDF using WeasyPrint
-├── resume.py # Optional UI route handler
-├── templates/
-│ └── index.html # Main web UI (form and results)
-├── static/
-│ ├── style.css # CSS for styling
-│ └── script.js # (Optional) JS interactions (if used separately)
-├── .env # Stores your API key (GEMINI_API_KEY or COHERE_API_KEY)
-└── README.md # You are here
+✅ Multi-Model Support → Gemini, Cohere, Hugging Face, OpenAI (fallbacks)
 
-yaml
-Copy
-Edit
+✅ Live Preview → View optimized text before downloading
 
----
+✅ Error Handling → Friendly messages for quota limits or API errors
 
-## ⚙️ How to Run Locally
+# 🛠️ Tech Stack
 
-### 1. Clone the Repository
+Backend: FastAPI
 
-```bash
-git clone https://github.com/your-username/resume-optimizer.git
-cd resume-optimizer
+Frontend: Jinja2 + Vanilla JS + CSS
 
-2. Set Up Environment
-Install dependencies:
+AI Models: Google Gemini, Cohere, Hugging Face, OpenAI (optional)
 
-bash
-Copy
-Edit
+PDF Generation: WeasyPrint
+
+Styling: Custom CSS
+
+# 📂 Project Structure
+Resume-GPT/
+│── main.py               # FastAPI app entry
+│── gemini_client.py      # Gemini API wrapper
+│── cohere_client.py      # Cohere API wrapper (optional)
+│── templates/            # Jinja2 templates
+│   ├── index.html
+│   ├── resume_template1.html
+│   ├── resume_template2.html
+│   ├── resume_template3.html
+│── static/               # CSS + JS
+│   ├── style.css
+│   ├── script.js
+│── requirements.txt      # Python dependencies
+│── .env                  # API keys (not committed to GitHub!)
+│── README.md             # Documentation
+
+# ⚙️ Installation
+1. Clone the repo
+git clone https://github.com/your-username/Resume-GPT.git
+cd Resume-GPT
+
+2. Create a virtual environment
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+
+3. Install dependencies
 pip install -r requirements.txt
-Create a .env file:
 
-ini
-Copy
-Edit
-COHERE_API_KEY=your_actual_api_key
-3. Run the App
-bash
-Copy
-Edit
+4. Set up API keys
+
+Create a .env file in the project root:
+
+GEMINI_API_KEY=your_gemini_api_key
+COHERE_API_KEY=your_cohere_api_key   # optional
+HF_API_KEY=your_huggingface_api_key  # optional
+OPENAI_API_KEY=your_openai_api_key   # optional
+
+5. Run the app
 uvicorn main:app --reload
-Visit http://127.0.0.1:8000 in your browser.
 
-📦 Requirements
-Python 3.8+
+Open your browser → http://127.0.0.1:8000
 
-FastAPI
+# 🚀 API Providers & Free Plans
+Provider	Free Tier	Notes
+Gemini	Limited quota/day	Best results, but strict rate limits
+Cohere	100 requests/day	Reliable backup option
+Hugging Face	30k tokens/month	Lots of open LLMs
+OpenAI	$5 free credits (3 months)	After that → paid
 
-Cohere Python SDK
+The app lets you switch providers if one hits a quota limit (429 error).
 
-WeasyPrint
+# 📌 To-Do (Future Enhancements)
 
-Install manually:
+ Save resume history in SQLite
 
-bash
-Copy
-Edit
-pip install fastapi uvicorn python-dotenv cohere weasyprint
-🧠 Powered By
-Cohere Command R+ Chat API
+ Dark / Light theme toggle
 
-FastAPI
+ Keyword highlighting from JD in resume
 
-HTML/CSS/JS frontend
+ Export to DOCX in addition to PDF
 
-WeasyPrint (for generating PDFs)
+ Mobile-friendly UI
 
-📌 Future Enhancements
-Job match score visualizer (e.g., 84% fit)
+# 🤝 Contributing
 
-Export optimized history
+Pull requests are welcome! For major changes, open an issue first to discuss what you’d like to change.
 
-Login/Save for future reference
+# 📜 License
 
-Add support for multiple languages
+This project is licensed under the MIT License.
