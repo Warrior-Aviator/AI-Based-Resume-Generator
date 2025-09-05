@@ -1,6 +1,0 @@
-"resume_text": "Software engineer with 2 years of experience in developing scalable web applications using Python and Django. Proficient in RESTful API development, SQL, and cloud deployment using AWS. Built an e-commerce platform that handled 50k+ monthly users. Holds a B.Tech in Computer Science from NIT."
-
-"job_description": "We are hiring a Python Backend Developer with hands-on experience in Django, PostgreSQL, and cloud deployment. Candidates should be familiar with REST APIs, CI/CD pipelines, and containerized environments using Docker. Experience with AWS is a plus."
-
-uvicorn main:app --reload
-
